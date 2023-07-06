@@ -1,0 +1,62 @@
+@use "../variables" as *;
+@use "../fonts" as *;
+
+.nav {
+  &__menu {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__menuItem {
+    margin-right: 55px;
+
+    &--icon {
+      margin-right: 40px;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__menuIcon {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(5720%)
+      hue-rotate(110deg) brightness(110%) contrast(101%);
+  }
+
+  &__menuLink {
+    font-size: 14px;
+    font-family: $primary_font;
+    color: $white;
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-align: center;
+
+    &::after {
+      content: "";
+      display: block;
+      transform: translateY(12px);
+      width: 100%;
+      height: 3px;
+      background: $yellow;
+      border-radius: 10px;
+      transition: 250ms all $transition-fn;
+      scale: 0;
+    }
+
+    &:hover,
+    &:focus {
+      color: $yellow;
+      transition: 250ms all $transition-fn;
+
+      &::after {
+        scale: 1;
+      }
+
+      .nav__menuIcon {
+        filter: invert(90%) sepia(98%) saturate(392%) hue-rotate(325deg)
+          brightness(100%) contrast(98%);
+      }
+    }
+  }
+}

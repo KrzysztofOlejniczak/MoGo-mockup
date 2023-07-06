@@ -1,0 +1,92 @@
+@use "../variables" as *;
+@use "../fonts" as *;
+
+.services {
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: 30px;
+    font-family: $primary_font;
+    color: $dark_grey;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-align: center;
+    margin: 0 auto;
+
+    &::after {
+      content: "";
+      display: block;
+      background-color: $pink;
+      width: 60px;
+      height: 3px;
+      margin: 0 auto;
+      transform: translateY(40px);
+    }
+  }
+
+  &__subtitle {
+    display: block;
+    font-size: 24px;
+    font-family: $secondary_font;
+    color: $dark_grey;
+    line-height: 1.2;
+    text-align: center;
+    margin: 0 auto;
+    padding: 45px 0 25px;
+  }
+
+  &__content {
+    padding-top: 110px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 100px 60px;
+  }
+
+  &__item {
+    padding-left: 90px;
+    &::before {
+      position: absolute;
+      transform: translate(-60px, 3px);
+    }
+    &:nth-child(1)::before {
+      content: url(../../assets/services/clock.svg);
+    }
+    &:nth-child(2)::before {
+      content: url(../../assets/services/graph.svg);
+    }
+    &:nth-child(3)::before {
+      content: url(../../assets/services/computer.svg);
+    }
+    &:nth-child(4)::before {
+      content: url(../../assets/services/book.svg);
+    }
+    &:nth-child(5)::before {
+      content: url(../../assets/services/home.svg);
+    }
+    &:nth-child(6)::before {
+      content: url(../../assets/services/image.svg);
+    }
+  }
+
+  &__itemTitle {
+    font-size: 14px;
+    font-family: $primary_font;
+    color: $dark_grey;
+    text-transform: uppercase;
+    padding-bottom: 20px;
+    line-height: 1.2;
+    text-align: left;
+  }
+
+  &__itemDescription {
+    font-size: 15px;
+    font-family: $third_font;
+    color: $light_grey;
+    line-height: 1.6;
+    text-align: left;
+  }
+}

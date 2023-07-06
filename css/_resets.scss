@@ -1,0 +1,20 @@
+@use "./fonts" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $third_font;
+}
+
+img {
+  display: block;
+}

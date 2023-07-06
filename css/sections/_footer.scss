@@ -1,0 +1,71 @@
+@use "../variables" as *;
+@use "../fonts" as *;
+
+.footer {
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 85px;
+    border-top: 1px solid;
+    border-color: $ligh_grey2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__copy {
+    font-size: 14px;
+    font-family: $primary_font;
+    color: $dark_grey;
+    line-height: 1.2;
+    padding: 25px 0;
+
+    &--pink {
+      color: $pink;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__formInput {
+    width: 230px;
+    height: 40px;
+    border: 1px solid;
+    border-color: $ligh_grey2;
+
+    &::placeholder {
+      font-size: 15px;
+      color: #cccccc;
+      font-style: italic;
+      line-height: 1.6;
+      text-align: left;
+      padding-left: 15px;
+    }
+  }
+
+  &__btn {
+    width: 150px;
+    height: 40px;
+    background-color: $mint;
+    font-size: 14px;
+    font-family: $primary_font;
+    color: $white;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    margin: 0;
+  }
+}
+.Subscribe {
+  position: absolute;
+  left: 1443.134px;
+  top: 2495.1px;
+  z-index: 99;
+}

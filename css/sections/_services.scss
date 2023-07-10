@@ -1,9 +1,10 @@
 @use "../variables" as *;
 @use "../fonts" as *;
+@use "../mixins" as *;
 
 .services {
   &__container {
-    max-width: 1200px;
+    max-width: 480px;
     margin: 0 auto;
   }
 
@@ -42,15 +43,18 @@
   &__content {
     padding-top: 110px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 100px 60px;
   }
 
   &__item {
-    padding-left: 90px;
+    position: relative;
+    padding-left: 10px;
+    padding-right: 10px;
     &::before {
       position: absolute;
-      transform: translate(-60px, 3px);
+      left: 50%;
+      transform: translate(-50%, -40px);
     }
     &:nth-child(1)::before {
       content: url(../assets/services/clock.svg);
@@ -79,7 +83,7 @@
     text-transform: uppercase;
     padding-bottom: 20px;
     line-height: 1.2;
-    text-align: left;
+    text-align: center;
   }
 
   &__itemDescription {
@@ -87,6 +91,51 @@
     font-family: $third_font;
     color: $light_grey;
     line-height: 1.6;
-    text-align: left;
+    text-align: center;
+  }
+}
+
+@include devices(tablet) {
+  .services {
+    &__container {
+      max-width: 1200px;
+    }
+
+    &__content {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &__item {
+      padding-left: 50px;
+      padding-right: 10px;
+      &::before {
+        left: 0;
+        transform: translate(10px, -7px);
+      }
+    }
+
+    &__itemTitle {
+      text-align: left;
+    }
+
+    &__itemDescription {
+      text-align: left;
+    }
+  }
+}
+
+@include devices(desktop) {
+  .services {
+    &__content {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    &__item {
+      padding-left: 90px;
+      padding-right: 0;
+      &::before {
+        transform: translate(30px, 3px);
+      }
+    }
   }
 }

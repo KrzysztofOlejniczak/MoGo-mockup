@@ -1,9 +1,10 @@
 @use "../variables" as *;
 @use "../fonts" as *;
+@use "../mixins" as *;
 
 .team {
   &__container {
-    max-width: 1200px;
+    max-width: 480px;
     margin: 0 auto;
   }
 
@@ -40,7 +41,7 @@
   }
 
   &__text {
-    padding: 90px 120px;
+    padding: 90px 20px 40px;
     font-size: 15px;
     font-family: $third_font;
     color: $light_grey;
@@ -50,7 +51,8 @@
 
   &__gallery {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
     gap: 30px;
   }
 
@@ -58,7 +60,7 @@
     &:hover {
       .team__photo,
       .team__socialsPanel {
-        transform: translate(-10px, -10px);
+        transform: translate(0, -10px);
         opacity: 1;
       }
     }
@@ -72,6 +74,8 @@
   }
 
   &__photo {
+    width: 100%;
+    height: auto;
     transition: 250ms all $transition-fn;
   }
 
@@ -108,5 +112,40 @@
     );
     opacity: 0;
     z-index: 2;
+  }
+}
+
+@include devices(tablet) {
+  .team {
+    &__container {
+      max-width: 1200px;
+    }
+    &__text {
+      padding: 90px 120px;
+    }
+
+    &__gallery {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    &__galleryItem {
+      &:hover {
+        .team__photo,
+        .team__socialsPanel {
+          transform: translate(-10px, -10px);
+        }
+      }
+    }
+  }
+}
+
+@include devices(desktop) {
+  .team {
+    &__text {
+      padding: 90px 120px;
+    }
+
+    &__gallery {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 }

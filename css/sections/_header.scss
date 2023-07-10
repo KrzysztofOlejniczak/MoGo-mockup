@@ -1,5 +1,6 @@
 @use "../variables" as *;
 @use "../fonts" as *;
+@use "../mixins" as *;
 
 .header {
   width: 100%;
@@ -15,7 +16,7 @@
   background-position: center center;
 
   &__container {
-    max-width: 1200px;
+    max-width: 768px;
     margin: 0 auto;
     padding-top: 30px;
   }
@@ -33,10 +34,11 @@
     color: $white;
     font-weight: 700;
     line-height: 1.2;
+    padding-left: 10px;
   }
 
   &__slogan {
-    font-size: 150px;
+    font-size: 50px;
     font-family: $primary_font;
     color: $white;
     text-align: center;
@@ -44,11 +46,11 @@
     text-transform: uppercase;
     line-height: 0.933;
     margin: 0 auto;
-    padding: 35px 190px 125px;
+    padding: 35px 10px 125px;
 
     &--sub {
       display: block;
-      font-size: 72px;
+      font-size: 30px;
       font-family: $secondary_font;
       text-transform: none;
       line-height: 1.2;
@@ -72,5 +74,36 @@
     text-align: center;
     margin: 0 auto;
     cursor: pointer;
+  }
+}
+
+@include devices(tablet) {
+  .header {
+    &__container {
+      max-width: 1200px;
+    }
+  }
+}
+
+@include devices(desktop) {
+  .header {
+    &__logo {
+      padding-left: 0;
+    }
+
+    &__slogan {
+      font-size: 150px;
+      padding: 35px 190px 125px;
+
+      &--sub {
+        display: block;
+        font-size: 72px;
+        font-family: $secondary_font;
+        text-transform: none;
+        line-height: 1.2;
+        margin: 0 auto;
+        padding: 180px 0 0;
+      }
+    }
   }
 }
